@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="jackwang">
+    <title>htProduction</title>
+    <link rel="stylesheet" href="./public/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./public/datatables/media/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="./public/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" type="text/css" href="./public/select2/css/select2.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/index.css" />
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">HeTang</a>
+            </div>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-md-2">导航</div>
+        <div class="col-md-10">
+            <button id="add">增加</button>
+            <button id="edit">编辑</button>
+            <button id="delete">删除</button>
+            <hr/>
+            <form method="post" action="#" id="filterForm">
+                <label>编码</label><input type="text" name="codeFilter" value="" />
+                <label>名称</label><input type="text" name="nameFilter" value="" />
+                <label>注册时段</label><input type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
+                <label>账号类型</label>
+                <select name="typeFilter">
+                    <option value="type1">类型1</option>
+                    <option value="type2">类型2</option>
+                    <option value="type3">类型3</option>
+                </select>
+                <input type="submit" value="筛选" id="filter"/>
+            </form>
+            <br/>
+            <br/>
+            <table id="table_id" class="display">
+                <thead>
+                <tr>
+                    <th>编码</th>
+                    <th>名称</th>
+                    <th>备注</th>
+                    <th>状态</th>
+                    <th>创建时间</th>
+                    <th>最后登录时间</th>
+                    <th>账号类型</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="information">
+    <form action="#" method="post" id="infoForm">
+        <table class="table">
+            <tr><td>名称</td><td><input type="text" name="name" id="name"/></td></tr>
+            <tr><td>备注</td><td><input type="text" name="remark" id="remark"/></td></tr>
+            <tr>
+                <td>状态</td>
+                <td>
+                    <label for="status1">状态1</label><input type="radio" checked="true" name="status" id="status1" value="1"/>
+                    <label for="status2">状态2</label><input type="radio" name="status" id="status2" value="2"/>
+                    <label for="status3">状态3</label><input type="radio" name="status" id="status3" value="3"/>
+                </td>
+            </tr>
+            <tr>
+                <td>账号类型</td>
+                <td>
+                    <select name="type" id="type">
+                        <option value="type1">类型1</option>
+                        <option value="type2">类型2</option>
+                        <option value="type3">类型3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="提交" id="submitInfo"/></td>
+                <td><input type="button" id="cancel" value="取消"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script type="text/javascript" src="./public/jquery/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="./public/moment/moment.js"></script>
+<script type="text/javascript" src="./public/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf8" src="./public/datatables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="./public/daterangepicker/daterangepicker.js"></script>
+<script src="./public/select2/js/select2.min.js"></script>
+<script type="text/javascript" src="./static/index.js"></script>
+</body>
+</html>
