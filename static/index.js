@@ -10,7 +10,14 @@ $(document).ready(function(){
             "url": "test.php"
         }
     });
-    $('input[name="daterange"]').daterangepicker();
+    var myDate = new Date();
+    $('input[name="daterange"]').daterangepicker({
+         startDate: "2016/5/21",
+         endDate: myDate.toLocaleDateString(),
+         locale: {
+            format: 'YYYY/MM/DD'
+         }
+    });
     $('select').select2();
 
     $('#table_id tbody').on( 'click', 'tr', function () {
