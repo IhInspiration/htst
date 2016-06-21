@@ -7,13 +7,8 @@ $(document).ready(function(){
 
     var table = $('#table_id').DataTable({
         ajax: {
-            "url": "test.php",
-            "data": function (d) {
-                //添加额外的参数传给服务器
-                d.extra_search = $('#filterForm').serializeArray();
-            }
+            "url": "test.php"
         }
-
     });
     $('input[name="daterange"]').daterangepicker();
     $('select').select2();
@@ -98,14 +93,16 @@ $(document).ready(function(){
 
     $('#filterForm').submit(function(e){
         e.preventDefault();
+        table.destroy();
+        table = $('#table_id').DataTable({
+            ajax: {
+                "url":  "test.php",
+                "data": function (d) {
+                    //添加额外的参数传给服务器
+                    d.extra_search = $('#filterForm').serializeArray();
+                }
+            }
+        });
         table.ajax.reload();
-        var args = table.ajax.params();
-        console.log(args.extra_search);
-        // $.post("test.php", {data: $(this).serializeArray()}, function(data){
-        //     //此处通过传值判断是否成功，成功则刷新列表
-        //     if(data){
-        //         console.log(table.data(data));
-        //     }
-        // });
     });
 });
